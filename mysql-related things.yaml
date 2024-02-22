@@ -5,3 +5,15 @@ FROM mysql:5.7
 #configuration
 COPY mysql.cnf /etc/mysql/conf.d/
 COPY inventory.sql /docker-entrypoint-initdb.d/
+
+
+2) If you forget your mysql password then you want to reset the root password of mysql. Then
+ i)    $ sudo service mysql start
+ ii)   $ cd /var/run
+ iii)  $ sudo cp -rp ./mysqld ./mysqld.bak
+ iv)   $ sudo service mysql stop
+ v)    $ sudo mv ./mysqld.bak ./mysqld
+ vi)   $ sudo mysqld_safe --skip-grant-tables --skip-networking &
+ vii)  $ mysql -u root
+ viii) FLUSH PRIVILEGES;
+ ix)   SET PASSWORD FOR root@'localhost' = PASSWORD('my_new_password');
