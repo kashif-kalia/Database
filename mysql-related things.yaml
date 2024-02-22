@@ -1,0 +1,7 @@
+1) if there is file of inventory.sql in which file we are creating a database, tables and creating inventory in tables using insert or update command then we can migrate that all data into 
+container and we can see there all database, tables and all datas. like there is file -- inventory.sql and mysql.cnf configuration file.
+
+FROM mysql:5.7
+#configuration
+COPY mysql.cnf /etc/mysql/conf.d/
+COPY inventory.sql /docker-entrypoint-initdb.d/
