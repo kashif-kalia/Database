@@ -1,0 +1,143 @@
+1) Create a ec2 instance.
+2)create elastic ip and attach to ec2 instance.
+
+Then on ec2 server
+
+1) Install apache server
+
+:-sudo apt install apache2
+
+2) now install php
+
+:- sudo apt install php libapache2-mod-php php-mysql
+
+3) now install mysql server
+
+:- sudo apt install mysql-server
+
+now we have to change mysql authentication plugin we will set password
+
+:- sudo mysql -u root
+now
+
+:----important --here of there is any data database of outside the we will  import from outside using import command
+:-  $ sudo mysql -u root -p  mhbwebsitedb < mhbwebsitedb.sql
+
+
+:- ALTER USER 'root'@localhost IDENTIFIED WITH mysql_native_password BY 'password@123';
+    
+now we will create other user
+:-CREATE USER 'kash'@localhost IDENTIFIED BY 'password@123';
+
+CREATE USER 'bwawkpyd_wp572'@localhost IDENTIFIED BY '-!6QA364Sp';
+Now we will create database to use with wordpress.
+:-CREATE DATABASE mhbwebsitedb;
+   
+now give all permission
+
+:-GRANT ALL PRIVILEGES ON mhb.* TO 'kash'@localhost;
+GRANT ALL PRIVILEGES ON mhb.* TO 'kash'@localhost;
+
+now press CTLR+D
+
+4)Now install wordpress
+:- cd /tmp
+
+:- wget https://wordpress.org/latest.tar.gz
+
+
+ :-ls
+
+:- tar -xvf latest.tar.gz
+
+ :-ls 
+
+:- sudo mv wordpress/ /var/www/html/
+
+ now use ipaddress/wordpree on browser to install wordpress
+
+now
+
+:- cd /var/www/html/wordpress
+:- nano wp-config.php
+ and paste the code from browser to this file.
+
+now go to browser fill detail and install wordpress
+
+and login in it.
+
+5) to access website direct from ip address go to 
+
+:- cd /etc/apache2/sites-available
+:- ls
+:- nano 000-default.conf
+ and add some path in DocumentsRoot /var/www/html  to
+:- DocumentRoot /var/www/html/wordpresss
+add two fields more
+
+:-ServerName mysamplesite.online
+:-ServerAlias www.mysamplesite.online
+
+then.
+sudo systemctl restart apache2
+
+6)add doamine name with ip
+ 
+7)login into word press dashboared
+now go to settings then go to general
+then
+replace url with DNS name.	
+
+8)to add security https add one tool
+:- apt update
+:-sudo apt install certbot python3-certbot-apache
+:-sudo certbot --apache
+now add gmail
+then add which domain you want https 
+leave empty click enter
+
+
+
+https://www.pravisht.com/mhbwebsite
+guest1 $P$B1MWbEw/Phdlgjx2GEfHd45hDBILha/
+
+
+to give write permision on second group user
+
+:- chmod -R g+w .
+
+to add user to the group
+
+:- usermod -aG root www-data
+
+vi /etc/php/8.1/apache2/php.ini
+
+to find location of file name 
+
+:- find / -name php.ini
+Edit wp-config.php
+define('FS_METHOD', 'direct' );
+chown -R www-data:www-data  /var/www/html/wordpress/wp-content
+
+define('WP_HOME','https://yoursite.com'); define('WP_SITEURL','https://yoursite.com');
+
+
+
+cat /var/www/html/wordpress/wp-content/debug.log------ to see logs
+nano /var/www/html/wordpress/wp-config.php  ---------
+
+
+mysql related link is below :-
+https://webhostinggeeks.com/howto/how-to-change-the-wordpress-urls-in-mysql-database/#:~:text=a%20WordPress%20database.-,SELECT%20guid%20FROM%20wp_posts%20WHERE%20post_type%20%3D%20'post'%20OR%20post_type,table%20of%20a%20WordPress%20database.
+
+UPDATE wp_options SET option_value = replace(option_value, ' https://www.myhealthbuddy.co', ' https://www.dev.myhealthbuddy.co') WHERE option_name = 'home' OR option_name = 'siteurl';
+
+ SELECT option_name, option_value FROM mhb_options WHERE option_name IN ('siteurl', 'home');
+UPDATE mhb_options SET option_value = 'https://www.dev.myhealthbuddy.co' WHERE option_name IN ('siteurl', 'home');
+
+SELECT guid FROM mhb_posts WHERE post_type = 'post';
+
+UPDATE wp_posts SET post_content = replace(post_content, 'https://myhealthbuddy.co', 'https://dev.myhealthbuddy.co');
+
+
+nano /etc/apache2/sites-available/000-default.conf -------- 
