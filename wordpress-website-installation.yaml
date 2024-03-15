@@ -36,7 +36,7 @@ Now we will create database to use with wordpress.
 now give all permission
 
 :-GRANT ALL PRIVILEGES ON mhb.* TO 'kash'@localhost;
-GRANT ALL PRIVILEGES ON mhb.* TO 'kash'@localhost;
+GRANT ALL PRIVILEGES ON mhbwebsitedb.* TO 'kash'@localhost;
 
 now press CTLR+D
 
