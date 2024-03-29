@@ -141,3 +141,11 @@ UPDATE wp_posts SET post_content = replace(post_content, 'https://myhealthbuddy.
 
 
 nano /etc/apache2/sites-available/000-default.conf -------- 
+
+
+
+create container on cluster and access to rds adatabase;
+kubectl run -it --rm --image=mysql:5.7 --restart=Never mysql-client
+kubectl exec -it mysql-client bash
+mysql -h hostname -u database-name -p 
+then give password
