@@ -13,5 +13,22 @@ Ex:- mongorestore --uri="mongodb://mhbuser:mhbuser_password@127.0.0.1:27018/mhb_
 
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Mongo DB User Creation using CLI of Mongo Compass
+
+:- use mhb_core;
+
+:- db.createUser({
+    user: "myuser",
+    pwd: "mypassword",
+    roles: [
+        { role: "readWrite", db: "mhb_core" }
+    ]
+});
+                                                    OR
+
+use mhb_core;
+'switched to db mhb_core'
+db.createUser({user: "mhbuser",pwd: "mhbuser_password",roles: [ { role: "readWrite", db: "mhb_core" }],})
 
 
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------
