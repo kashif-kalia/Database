@@ -1,0 +1,17 @@
+Mongo DB command to create a DUMP of mongo db data using tool "MongoDB Command Line Database Tools Download"
+
+:- mongodump --uri=<connection-string> --out=/path/to/backup/directory
+Ex :- mongodump --uri="mongodb://mhbuser:mhbuser_password@127.0.0.1:27018/mhb_core" --out="C:\Users\Kashif Rizwan\Desktop\mongo"
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Mongo DB command to create Restore  DUMP of mongo db data using tool "MongoDB Command Line Database Tools Download"
+
+:- mongorestore --uri=<connection-string> <path-to-dump-directory>
+Ex:- mongorestore --uri="mongodb://mhbuser:mhbuser_password@127.0.0.1:27018/mhb_core" C:\Users\Kashif Rizwan\Desktop\mongo
+
+
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
