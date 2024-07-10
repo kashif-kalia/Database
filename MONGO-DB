@@ -1,7 +1,7 @@
 Mongo DB command to create a DUMP of mongo db data using tool "MongoDB Command Line Database Tools Download"
 
 :- mongodump --uri=<connection-string> --out=/path/to/backup/directory
-Ex :- mongodump --uri="mongodb://mhbuser:mhbuser_password@127.0.0.1:27018/mhb_core" --out="C:\Users\Kashif Rizwan\Desktop\mongo"
+Ex :- mongodump --uri="mongodb://mhbuser:mhbuser_password@127.0.0.1:27018/mhb_core?socketTimeoutMS=120000&connectTimeoutMS=10000" --out="E:\Kashif WorkSpace\mhb-backup\mhb-uat-backup\latest-mhb-core"
 
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
