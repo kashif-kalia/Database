@@ -32,3 +32,23 @@ db.createUser({user: "mhbuser",pwd: "mhbuser_password",roles: [ { role: "readWri
 
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+            For login to MYSQL Of RDS running on Aws within a EKS Cluster
+
+we need to create a Pod of MYSQL in BASH Terminal then use command to login to MYSQL
+
+:-  kubectl run mysql-debug --image=mysql:latest --restart=Never -it -- /bin/bash
+:-  mysql -h tif-int-rds.cacfrfamk67z.eu-west-2.rds.amazonaws.com -u master -p
+
+    Then Eneter Password.
+
+
+
+
+
+
+
+
+
+
+
+
