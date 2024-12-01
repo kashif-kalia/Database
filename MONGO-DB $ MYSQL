@@ -3,6 +3,10 @@ Mongo DB command to create a DUMP of mongo db data using tool "MongoDB Command L
 :- mongodump --uri=<connection-string> --out=/path/to/backup/directory
 Ex :- mongodump --uri="mongodb://mhbuser:mhbuser_password@127.0.0.1:27018/mhb_core?socketTimeoutMS=120000&connectTimeoutMS=10000" --out="E:\Kashif WorkSpace\mhb-backup\mhb-uat-backup\latest-mhb-core"
 
+                                                                       OR
+
+mongodump --uri="mongodb://adminuser:password123@127.0.0.1:27019/mhb_uat_core?authSource=admin&authMechanism=SCRAM-SHA-1" --out="E:\Kashif WorkSpace\mhb-backup\mhb-uat-core-backup-1-12-2024"
+
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 Mongo DB command to create Restore  DUMP of mongo db data using tool "MongoDB Command Line Database Tools Download"
