@@ -12,7 +12,7 @@ mongodump --uri="mongodb://adminuser:password123@127.0.0.1:27019/mhb_uat_core?au
 Mongo DB command to create Restore  DUMP of mongo db data using tool "MongoDB Command Line Database Tools Download"
 
 :- mongorestore --uri=<connection-string> <path-to-dump-directory>
-Ex:- mongorestore --uri="mongodb://mhbuser:mhbuser_password@127.0.0.1:27018/mhb_core" C:\Users\Kashif Rizwan\Desktop\mongo
+Ex:- mongorestore --uri="mongodb://adminuser:password123@127.0.0.1:27018/mhb_core" --authenticationDatabase=mhb_core "/home/ubuntu/Documents/back-uat-mongo/mhb_core"
 
 
 
