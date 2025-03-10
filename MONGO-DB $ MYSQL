@@ -45,11 +45,23 @@ we need to create a Pod of MYSQL in BASH Terminal then use command to login to M
 
     Then Eneter Password.
 
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+                              To Take the Backup of MYSQL DATABASE which is on RDS
+
+mysqldump -u master -p --host=tif-int-rds.cacfrfamk67z.eu-west-2.rds.amazonaws.com --port=3306 --single-transaction --set-gtid-purged=OFF --triggers --routines --events keycloak > keycloak_backup.sql
+
+                                                        OR
+mysqldump -u master -p --host=tif-int-rds.cacfrfamk67z.eu-west-2.rds.amazonaws.com --port=3306  keycloak > keycloak_backup.sql
+
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+                              After Taking Backup Restore It In Another DATABASE
+
+mysql -u master -p --host=tif-int-rds.cacfrfamk67z.eu-west-2.rds.amazonaws.com --port=3306 keycloak1 < keycloak_backup.sql
 
 
 
-
-
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
 
